@@ -1,6 +1,5 @@
 FROM debian:bookworm-slim AS deps
 RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg curl && rm -rf /var/lib/apt/lists/*
-
 FROM n8nio/n8n:latest
 USER root
 COPY --from=deps /usr/bin/ffmpeg /usr/bin/ffmpeg
